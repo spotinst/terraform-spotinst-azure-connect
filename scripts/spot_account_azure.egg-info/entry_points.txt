@@ -1,0 +1,3 @@
+[console_scripts]
+spot-account-azure = spot_account_azure:cli
+
