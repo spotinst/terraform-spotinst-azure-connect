@@ -8,7 +8,7 @@ provider "azuread" {
 
 #Call the spot module to create a Spot account and link Azure
 module "azure-connect" {
-  source = "../"
+  source = "spotinst/azure-connect/spotinst"
 }
 output "spot_account_id" {
   value = module.azure-connect.spot_account_id
