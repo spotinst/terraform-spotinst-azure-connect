@@ -1,0 +1,7 @@
+setup.py
+spot_account_azure.egg-info/PKG-INFO
+spot_account_azure.egg-info/SOURCES.txt
+spot_account_azure.egg-info/dependency_links.txt
+spot_account_azure.egg-info/entry_points.txt
+spot_account_azure.egg-info/requires.txt
+spot_account_azure.egg-info/top_level.txt
