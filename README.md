@@ -1,4 +1,4 @@
-# Terraform Azure example for Spot.io
+# Connect Azure Subscription To Spot.io Terraform Module
 
 ## Introduction
 A Terraform module to connect an Azure Subscription to Spot.io
