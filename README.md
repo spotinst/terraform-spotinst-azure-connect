@@ -10,15 +10,16 @@ The module will aid in automatically connecting your Azure Subscription to Spot 
 ```hcl
 # One or more subscriptions can be added. The following shows how to connect two subscriptions. To add additional duplicate the module and increment the array number for each subscription.
 provider "azurerm" {
-  subscription_id = var.subscription_id
+  subscription_id = "redacted"
   features {}
 }
 provider "azuread" {
-  tenant_id = var.tenant_id
+  tenant_id = "redacted"
 }
 #Call the spot module to create a Spot account and link to the first Azure subscription
 module "azure-connect" {
-  source  = "spotinst/azure-connect/spotinst"
+  source          = "spotinst/azure-connect/spotinst"
+  spotinst_token  = "redacted"
 }
 output "spot_account_id" {
   value = module.azure-connect.spot_account_id
@@ -26,7 +27,7 @@ output "spot_account_id" {
 ```
 
 ### Pre-Reqs
-* Spot Organization Admin API token. This is required to be added as an environment variable stored in ```SPOTINST_TOKEN```.
+* Spot Organization Admin API token.
 * python3 installed
 * pip3 installed
 * Subscription ID/s
@@ -50,7 +51,4 @@ On Apply:
 * Create a Service Principal 
 * Assign Role to Application on Subscription
 * Create New Spot Account using the subscription display name
-* Provide and link newly created application credentials to Spot account. 
-
-Prints out the following:
-* Spot Account ID
+* Provide and link newly created application credentials to Spot account.
