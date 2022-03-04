@@ -16,3 +16,4 @@ terraform.tfvars
 /test/
 /scripts/spot.egg-info/
 scripts/__pycache__/
+/scripts/spot_account_azure.egg-info/
