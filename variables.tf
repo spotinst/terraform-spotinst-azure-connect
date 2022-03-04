@@ -1,7 +1,27 @@
+variable "spotinst_token" {
+  type        = string
+  description = "Spotinst API Token"
+  sensitive   = true
+}
+variable "debug" {
+  type        = bool
+  description = "Add flag to expose sensitive variables for troubleshooting"
+  default     = false
+}
 variable "end_date" {
   type        = string
   description = "(Optional) The End Date which the Password is valid until, formatted as a RFC3339 date string (e.g. 2018-01-01T01:02:03Z). Changing this field forces a new resource to be created."
   default     = "2099-01-01T01:02:03Z"
+}
+variable "app_display_name" {
+  type        = string
+  description = "Display name of the App Registrant"
+  default     = null
+}
+variable "secret_display_name" {
+  type        = string
+  description = "Display name of the secret"
+  default     = null
 }
 variable "actions" {
   type = list(string)
