@@ -8,7 +8,7 @@ The module will aid in automatically connecting your Azure Subscription to Spot 
 
 ## Example
 ```hcl
-# One or more subscriptions can be added. The following shows how to connect two subscriptions. To add additional duplicate the module and increment the array number for each subscription.
+# One or more subscriptions can be added.
 provider "azurerm" {
   subscription_id = "redacted"
   features {}
