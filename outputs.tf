@@ -12,6 +12,11 @@ output "directory_id" {
 }
 
 output "spot_account_id" {
-  description = "spot account_id"
+  description = "Spot Account ID"
   value = local.account_id
+}
+
+output "spot_organization_id" {
+  description = "Spot Organization ID"
+  value = local.organization_id
 }
