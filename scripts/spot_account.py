@@ -19,7 +19,7 @@ def cli(ctx, *args, **kwargs):
     help='Spotinst Token'
 )
 @click.pass_context
-def create(ctx, *args, **kwargs):
+def create(ctx, **kwargs):
     """Create a new Spot Account"""
     session = SpotinstSession(auth_token=kwargs.get('token'))
     ctx.obj['client'] = session.client("admin")
@@ -35,7 +35,7 @@ def create(ctx, *args, **kwargs):
     help='Spotinst Token'
 )
 @click.pass_context
-def delete(ctx, *args, **kwargs):
+def delete(ctx, **kwargs):
     """Delete a Spot Account"""
     session = SpotinstSession(auth_token=kwargs.get('token'))
     ctx.obj['client'] = session.client("admin")
@@ -83,7 +83,7 @@ def set_cloud_credentials(ctx, **kwargs):
     help='Spotinst Token'
 )
 @click.pass_context
-def get(ctx, *args, **kwargs):
+def get(ctx, **kwargs):
     """Returns ONLY the first match"""
     session = SpotinstSession(auth_token=kwargs.get('token'))
     ctx.obj['client'] = session.client("admin")
