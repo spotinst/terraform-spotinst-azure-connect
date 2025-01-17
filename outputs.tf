@@ -1,5 +1,6 @@
 output "application_id" {
-  value = azuread_application.spot.application_id
+#  value = azuread_application.spot.application_id
+  value = azuread_application.spot.id
 }
 output "subscription_id" {
   value = data.azurerm_subscription.current.subscription_id

@@ -31,7 +31,8 @@ resource "azuread_application" "spot" {
 resource "azuread_application_password" "spot-credential" {
   depends_on            = [azuread_application.spot]
   display_name          = var.secret_display_name == null ? "Spot.io-${data.azurerm_subscription.current.display_name}" : var.secret_display_name
-  application_object_id = azuread_application.spot.id
+#  application_object_id = azuread_application.spot.id
+  application_id = azuread_application.spot.id
   end_date              = var.end_date
 }
 
@@ -57,7 +58,8 @@ resource "azurerm_role_definition" "spot" {
 #Create Service Principal
 resource "azuread_service_principal" "spot" {
   depends_on           = [azuread_application.spot]
-  application_id       = azuread_application.spot.application_id
+#  application_id       = azuread_application.spot.application_id
+  client_id       = azuread_application.spot.client_id
 }
 
 # Assign the role
@@ -67,6 +69,7 @@ resource "azurerm_role_assignment" "spot" {
   principal_id         = azuread_service_principal.spot.object_id
 }
 
+/*
 # Link the Role ARN to the Spot Account
 resource "null_resource" "account_association" {
   depends_on = [azurerm_role_assignment.spot, null_resource.account]
@@ -74,4 +77,4 @@ resource "null_resource" "account_association" {
     interpreter = ["/bin/bash", "-c"]
     command = "${local.cmd} set-cloud-credentials --token=${local.spotinst_token} ${local.account_id} ${azuread_application.spot.application_id} ${azuread_application_password.spot-credential.value} ${data.azurerm_client_config.current.tenant_id} ${data.azurerm_subscription.current.subscription_id}"
   }
-}
+}*/
